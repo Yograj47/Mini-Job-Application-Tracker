@@ -39,7 +39,6 @@ export default function EditApplicationPage({ params }: EditPageProps) {
         setIsSubmitting(true);
         try {
             await applicationService.update(id, data);
-            
             toast.success("Application updated successfully!");
             router.push("/applications");
             router.refresh();
@@ -53,8 +52,8 @@ export default function EditApplicationPage({ params }: EditPageProps) {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center min-h-100">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <div className="flex justify-center items-center min-h-[60vh] px-4">
+                <div className="animate-spin rounded-full h-6 w-6 border-2 border-gray-200 border-b-blue-600"></div>
             </div>
         );
     }
@@ -62,23 +61,21 @@ export default function EditApplicationPage({ params }: EditPageProps) {
     if (!application) return null;
 
     return (
-        <div className="container mx-auto py-10 px-4">
-            <div className="max-w-xl mx-auto">
-                <div className="mb-6">
-                    <button 
-                        onClick={() => router.back()}
-                        className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
-                    >
-                        &larr; Cancel and Go Back
-                    </button>
-                </div>
-
-                <ApplicationForm 
-                    initialData={application} 
-                    onSubmit={handleUpdateSubmit} 
-                    isSubmitting={isSubmitting} 
-                />
+        <div className="mx-auto max-w-xl w-full py-6 sm:py-10 px-4">
+            <div className="mb-4 sm:mb-5">
+                <button 
+                    onClick={() => router.back()}
+                    className="text-xs font-semibold text-gray-500 hover:text-blue-600 transition-colors flex items-center gap-1"
+                >
+                    &larr; Cancel and Go Back
+                </button>
             </div>
+
+            <ApplicationForm 
+                initialData={application} 
+                onSubmit={handleUpdateSubmit} 
+                isSubmitting={isSubmitting} 
+            />
         </div>
     );
 }

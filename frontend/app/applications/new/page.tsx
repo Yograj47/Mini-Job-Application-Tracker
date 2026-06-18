@@ -27,11 +27,11 @@ export default function NewApplicationPage() {
     };
 
     return (
-        <div className="container mx-auto py-10 px-4">
-            <div className="mb-6 max-w-xl mx-auto">
+        <div className="mx-auto max-w-xl w-full py-6 sm:py-10 px-4">
+            <div className="mb-4 sm:mb-5">
                 <button
                     onClick={() => router.back()}
-                    className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-xs font-semibold text-gray-500 hover:text-blue-600 transition-colors flex items-center gap-1"
                 >
                     &larr; Back to Applications
                 </button>
