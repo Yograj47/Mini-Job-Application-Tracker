@@ -7,19 +7,15 @@ datasource db {
 }
 
 model Application {
-  id String @id @default(uuid())
-
+  id          String   @id @default(uuid())
   companyName String
   jobTitle    String
-
-  jobType JobType
-  status  Status
-
+  jobType     JobType
+  status      Status
   appliedDate DateTime
   notes       String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 enum JobType {
